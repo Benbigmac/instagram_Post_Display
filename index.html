@@ -23,7 +23,7 @@ $.ajax({
         $.each(response.data, function(index, obj) {
             console.log(obj.images.low_resolution.url);
            
-            $('#instagram_feed').append("<li><a href='" + obj.link + "' target='_blank'><img src="+ obj.images.low_resolution.url+" /></a></li>");
+            $('#instagram_feed').append("<li><a href='" + obj.link + "' target='_blank'><img src="+ obj.images.thumbnail.url+" /></a></li>");
         })
     },
 
