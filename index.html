@@ -22,7 +22,7 @@ $.ajax({
         console.log(response);
         $.each(response.data, function(index, obj) {
 		if(count%6==0){
-			apper+="</ul><ul class=\"instagram_feed_cl\">";
+			apper+="</ul><br><ul class=\"instagram_feed_cl\">";
 		}
             console.log(obj.images.thumbnail.url);
               console.log("<img src=" + obj.images.low_resolution.url + "/>");
