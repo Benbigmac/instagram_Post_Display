@@ -26,7 +26,7 @@ $.ajax({
 		}
             console.log(obj.images.thumbnail.url);
               console.log("<img src=" + obj.images.low_resolution.url + "/>");
-            apper+="<li><a href='" + obj.link + "' target='_blank'><img src=" + obj.images.thumbnail.url +"/></a></li>";
+            apper+="<li><a href='" + obj.link + "' target='_blank'><img src=" + obj.images.low_resolution.url +"/></a></li>";
 		count+=1;
         });
 	apper=apper+"</ul>";
