@@ -12,40 +12,37 @@
 </body>
 
 <script>
-
 $.ajax({
     type: "GET", 
     url: "//api.instagram.com/v1/users/self/media/recent/?access_token=15402754604.0241b45.d34780d754b746468132680c4f120db0",
     crossDomain: true,
     success: function(response) {	
 	var count=0;
-	var apper="<ul>"
+	var apper="<ul class=\"instagram_feed_cl\">"
         console.log(response);
-
         $.each(response.data, function(index, obj) {
 		if(count%5==0){
-			apper=apper+"</ul><ul>";
+			apper=apper+"</ul><ul class=\"instagram_feed_cl\">";
 		}
-            console.log(obj.images.low_resolution.url);
+            console.log(obj.images.thumbnail.url);
               console.log("<img src=" + obj.images.low_resolution.url + "/>");
-            apper=apper+"<li><a href='" + obj.link + "' target='_blank'><img src=" +obj.images.low_resolution.url +"/></a></li>";
+            apper=apper+"<li><a href='" + obj.link + "' target='_blank'><img src=" +obj.images.thumbnail.url +"/></a></li>";
 		count+=1;
         });
 	apper=apper+"</ul>";
 	$('#instagram_feed').append(apper);
     },
-
     dataType: "jsonp" //set to JSONP, is a callback
 });
  
  
 </script>
 <style>
- #instagram_feed{
+ .instagram_feed_cl{
 	list-style-type: none;
 	margin: 0;
 }
-#instagram_feed li{
+.instagram_feed li{
 	float: left;
 	margin: 10px;
 }
