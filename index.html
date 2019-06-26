@@ -10,7 +10,7 @@
 <p>This is a paragraph.</p>
 <div id="instagram_feed"></div>
 </body>
-
+<section>
 <script>
 $.ajax({
     type: "GET", 
@@ -21,7 +21,7 @@ $.ajax({
 	var apper="<ul class=\"instagram_feed_cl\">"
         console.log(response);
         $.each(response.data, function(index, obj) {
-		if(count%6==0){
+		if(count%7==0){
 			apper+="</ul><ul class=\"instagram_feed_cl\">";
 		}
             console.log(obj.images.thumbnail.url);
@@ -48,6 +48,6 @@ $.ajax({
 }
  </style>
 
-
+	</section>
 
 </html>
