@@ -8,7 +8,7 @@
 
 <h1>This is a Heading</h1>
 <p>This is a paragraph.</p>
-<ul id="instagram_feed"></ul>
+<div id="instagram_feed"></div>
 </body>
 
 <script>
@@ -19,12 +19,17 @@ $.ajax({
     crossDomain: true,
     success: function(response) {
         console.log(response);
-
+	var count=0;
+	$('#instagram_feed').append("<ul>");
         $.each(response.data, function(index, obj) {
+	if(count%5==0){
+		$('#instagram_feed').append("</ul><ul>");
+	}
             console.log(obj.images.low_resolution.url);
-           
-            $('#instagram_feed').append("<li><a href='" + obj.link + "' target='_blank'><img src="+ obj.images.thumbnail.url+" /></a></li>");
-        })
+       $('#instagram_feed').append("<li><a href='" + obj.link + "' target='_blank'><img src="= obj.images.low_resolution.url +"/></a></li>");
+	count+=1;
+	})
+	$('#instagram_feed').append("</ul>");
     },
 
     dataType: "jsonp" //set to JSONP, is a callback
